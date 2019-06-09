@@ -1,0 +1,20 @@
+{
+  "name": "node",
+  "version": "1.0.2",
+  "description": "res api",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tong2dev/docker-compse-1.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment-timezone": "^0.5.25"
+  }
+}

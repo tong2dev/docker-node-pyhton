@@ -1,0 +1,5 @@
+ENV/bot_request/node_modules/
+ENV/bot_request/package-lock.json
+ENV/node/node_modules/
+ENV/node/package-lock.json
+.DS_Store

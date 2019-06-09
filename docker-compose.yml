@@ -1,0 +1,50 @@
+version: '3.3'
+
+services:
+
+  bot_request:
+    depends_on:
+      - python
+      - node
+    image: node:alpine
+    container_name: bot_request 
+    working_dir: /usr/src/app/bot_request
+    volumes:
+      - ./ENV/bot_request:/usr/src/app/bot_request
+    ports:
+      - 3000:3000
+    environment:
+        - PORT=3000
+    networks:
+      - essof_ap
+    tty: true
+
+  node:
+    build: ./ENV/node
+    container_name: node 
+    working_dir: /usr/src/app/node
+    ports:
+      - 4000:4000
+    environment:
+        - PORT=4000
+    networks:
+      - essof_ap
+    command: npm start
+
+  python:
+    build: ./ENV/python
+    container_name: python
+    working_dir: /usr/src/app/python
+    volumes:
+      - ./ENV/python:/usr/src/app/python
+    ports:
+      - 5000:5000
+    environment:
+        - FLASK_ENV=development
+        - FLASK_APP=app.py
+    networks:
+      - essof_ap
+    command: python3 app.py
+    
+networks:
+  essof_ap:
